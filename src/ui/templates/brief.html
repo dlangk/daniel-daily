@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Daily Brief{% endblock %}
+
+{% block content %}
+<div class="briefs-archive">
+    {% if briefs %}
+        {% for brief in briefs %}
+        <article class="brief" id="brief-{{ brief.date }}">
+            <header class="brief-header">
+                <time datetime="{{ brief.date }}">{{ brief.date }} {{ brief.front_matter.generated_at | weekday }}</time>
+                <span class="sources-count">{{ brief.front_matter.sources_analyzed }} sources</span>
+            </header>
+            <div class="brief-content">
+                {{ brief.content | safe }}
+            </div>
+        </article>
+        {% endfor %}
+    {% else %}
+        <div class="no-brief">
+            <h2>No Briefs Available</h2>
+            <p>No briefs have been generated yet. Run:</p>
+            <pre>python cli.py collect && python cli.py analyze</pre>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

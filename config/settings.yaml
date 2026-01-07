@@ -1,0 +1,11 @@
+collection:
+  max_age_days: 7
+
+storage:
+  content_dir: "./data/content"
+  briefs_dir: "./data/briefs"
+  state_dir: "./data/state"
+
+server:
+  host: "127.0.0.1"
+  port: 3000

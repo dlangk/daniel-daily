@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Daily Brief{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">Daily Brief</a>
+            <div class="nav-right">
+                <a href="/archive">Archive</a>
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <span class="icon-sun">&#9788;</span>
+                    <span class="icon-moon">&#9789;</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <aside id="source-panel" class="source-panel">
+        <div class="source-panel-header">
+            <h3 id="source-title">Source</h3>
+            <button id="close-panel" aria-label="Close panel">&times;</button>
+        </div>
+        <div class="source-panel-meta">
+            <span id="source-name"></span>
+            <a id="source-link" href="#" target="_blank" rel="noopener">Open original &rarr;</a>
+        </div>
+        <div id="source-content" class="source-panel-content"></div>
+    </aside>
+    <div id="panel-overlay" class="panel-overlay"></div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

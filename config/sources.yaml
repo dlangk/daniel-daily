@@ -1,0 +1,7 @@
+sources:
+  - id: hacker-news
+    name: "Hacker News"
+    type: rss
+    url: "https://hnrss.org/frontpage"
+    category: tech
+    enabled: true

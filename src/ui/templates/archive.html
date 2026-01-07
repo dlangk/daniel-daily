@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Archive - Daily Brief{% endblock %}
+
+{% block content %}
+<div class="archive">
+    <h1>Archive</h1>
+    {% if briefs %}
+        <ul class="archive-list">
+            {% for date, path in briefs %}
+                <li>
+                    <a href="/brief/{{ date }}">{{ date }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="no-briefs">No briefs have been generated yet.</p>
+    {% endif %}
+</div>
+{% endblock %}
